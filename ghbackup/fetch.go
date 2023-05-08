@@ -130,6 +130,7 @@ func getNextURL(header http.Header) string {
 	for _, v := range parts {
 		if strings.Contains(v, "rel=\"next\"") {
 			nextLink = strings.TrimSpace(v)
+			break
 		}
 	}
 	if nextLink == "" {
@@ -146,4 +147,3 @@ func getNextURL(header http.Header) string {
 	}
 	return urlInBrackets[1 : len(urlInBrackets)-1]
 }
-
